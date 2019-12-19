@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title color="">Ver Muestra Agua</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="add" size="large" (click)="agregarAgua()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-list>
+  <ion-item
+    *ngFor="let elemento of dataLocal.listaRegistros; let i = index"
+    (click)="verMuestra(i)"
+    tappable
+    detail
+  >
+    <ion-label>
+      <h3>{{ elemento.Compania }}</h3>
+      <p color="medium">{{ elemento.NomRanch }}:{{ elemento.Cultivo }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button>
+        <ion-label>Muestras Fruta</ion-label>
+        <ion-icon name="leaf" (click)="viewfruit()" color="success"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-label>Muestras Agua</ion-label>
+        <ion-icon
+          name="water"
+          (click)="viewwater()"
+          color="secondary"
+        ></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-label>Cerrar Sesión</ion-label>
+        <ion-icon name="log-out" (click)="logout()" color="danger"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

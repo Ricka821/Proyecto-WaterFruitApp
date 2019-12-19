@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button
+        color=""
+        defaultHref="/vermuestrafruta"
+      ></ion-back-button>
+    </ion-buttons>
+
+    <ion-title color="">Muestra de Fruta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #formRegFruta="ngForm">
+    <ion-item>
+      <ion-label position="floating">ID:</ion-label>
+      <ion-input name="id" [(ngModel)]="r.ID" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Compañia:</ion-label>
+      <ion-input
+        name="compañia"
+        [(ngModel)]="r.Compania"
+        type="text"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Número de Rancho:</ion-label>
+      <ion-input
+        name="numero de rancho"
+        [(ngModel)]="r.NumRancho"
+        type="number"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre de Rancho:</ion-label>
+      <ion-input
+        name="nombre de rancho"
+        [(ngModel)]="r.NomRanch"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Región:</ion-label>
+      <ion-input name="region" [(ngModel)]="r.Region" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cultivo:</ion-label>
+      <ion-select
+        value="Cultivo"
+        name="cultivo"
+        [(ngModel)]="r.Cultivo"
+        okText="Aceptar"
+        cancelText="Cancelar"
+      >
+        <ion-select-option value="Fresa">Fresa</ion-select-option>
+        <ion-select-option value="Zarzamora">Zarzamora</ion-select-option>
+        <ion-select-option value="Arándano">Arándano</ion-select-option>
+        <ion-select-option value="Frambuesa">Frambuesa</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Variedad:</ion-label>
+      <ion-input
+        name="variedad"
+        [(ngModel)]="r.Variedad"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-button
+      [disabled]="formRegFruta.invalid"
+      expand="full"
+      type="submit"
+      color="dark"
+      (click)="GuardarFruta()"
+      shape="round"
+    >
+      Guardar</ion-button
+    >
+  </form>
+</ion-content>

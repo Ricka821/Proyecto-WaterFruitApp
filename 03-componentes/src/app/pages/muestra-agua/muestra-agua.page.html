@@ -1,0 +1,142 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button color="" defaultHref="/vermuestragua"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="">Muestra de Agua</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #formRegAgua="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">ID:</ion-label>
+        <ion-input
+          name="id"
+          [(ngModel)]="r.ID"
+          type="text"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Compañia:</ion-label>
+        <ion-input
+          name="compañia"
+          [(ngModel)]="r.Compania"
+          type="text"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Número de Rancho:</ion-label>
+        <ion-input
+          name="numero de rancho"
+          [(ngModel)]="r.NumRancho"
+          type="number"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre de Rancho:</ion-label>
+        <ion-input
+          name="NombreRancho"
+          [(ngModel)]="r.NomRanch"
+          type="text"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fuente:</ion-label>
+        <ion-select
+          value="Fuente"
+          name="fruta"
+          [(ngModel)]="r.Fuente"
+          okText="Aceptar"
+          cancelText="Cancelar"
+        >
+          <ion-select-option value="Red Municipal"
+            >Red Municipal</ion-select-option
+          >
+          <ion-select-option value="Pozo">Pozo</ion-select-option>
+          <ion-select-option value="Canal">Canal</ion-select-option>
+          <ion-select-option value="Manantial">Manantial</ion-select-option>
+          <ion-select-option value="Río">Río</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Descripción:</ion-label>
+        <ion-select
+          value="Descripción"
+          name="descripción"
+          [(ngModel)]="r.Descripcion"
+          okText="Aceptar"
+          cancelText="Cancelar"
+        >
+          <ion-select-option value="Antes de Filtro"
+            >Antes de Filtro</ion-select-option
+          >
+          <ion-select-option value="Después de Filtro"
+            >Después de Filtro</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Uso:</ion-label>
+        <ion-select
+          value="Uso"
+          name="uso"
+          [(ngModel)]="r.Uso"
+          okText="Aceptar"
+          cancelText="Cancelar"
+        >
+          <ion-select-option value="Aplicaciones y Lavado de Manos"
+            >Aplicaciones y Lavado de Manos</ion-select-option
+          >
+          <ion-select-option value="Riego, Aplicaciones y Lavado de Manos"
+            >Riego, Aplicaciones y Lavado de Manos</ion-select-option
+          >
+          <ion-select-option value="Riego">Riego</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Región:</ion-label>
+        <ion-input name="region" [(ngModel)]="r.Region" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Cultivo:</ion-label>
+        <ion-select
+          name="cultivo"
+          [(ngModel)]="r.Cultivo"
+          value="Cultivo"
+          okText="Aceptar"
+          cancelText="Cancelar"
+        >
+          <ion-select-option value="Fresa">Fresa</ion-select-option>
+          <ion-select-option value="Zarzamora">Zarzamora</ion-select-option>
+          <ion-select-option value="Arándano">Arándano</ion-select-option>
+          <ion-select-option value="Frambuesa">Frambuesa</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-list-header>Tipo de Análisis</ion-list-header>
+      <ion-item *ngFor="let entry of analisis; let i = index">
+        <ion-label>{{ entry.val }}</ion-label>
+        <ion-checkbox
+          slot="end"
+          [(ngModel)]="entry.isChecked"
+          name="item{{ i }}"
+        ></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-button
+      [disabled]="formRegAgua.invalid"
+      expand="full"
+      type="submit"
+      color="dark"
+      shape="round"
+      (click)="GuardarAgua()"
+    >
+      Guardar
+    </ion-button>
+  </form>
+</ion-content>
